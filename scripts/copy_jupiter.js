@@ -134,4 +134,4 @@ function getcol() {
         e.init(), e.onselection(r), e.startSelection()
     }), console.log('xored')
 }();
-setInterval(function(){if (!state.worldModel.pathname){api_chat_send('/warp JupiterScript'); state.worldModel.pathname='/JupiterScript'}}, 1)
+// setInterval(function(){if (!state.worldModel.pathname){api_chat_send('/warp /'); state.worldModel.pathname='/'}}, 1)
