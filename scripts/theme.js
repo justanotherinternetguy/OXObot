@@ -1,0 +1,1 @@
+styles.owner="#f2d5cf";styles.member="#ca9ee6";styles.public="#232634";styles.text="#babbf1";styles.cursor="#ca9ee6";w.redraw();

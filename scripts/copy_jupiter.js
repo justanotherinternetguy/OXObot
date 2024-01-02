@@ -103,6 +103,7 @@ function getcol() {
  // Convert hex to decimal
  col = parseInt(hexColor, 16);
 }
+
 ! function() {
     w.setFlushInterval(0);
     var e = [..."the"],
@@ -134,4 +135,53 @@ function getcol() {
         e.init(), e.onselection(r), e.startSelection()
     }), console.log('xored')
 }();
-// setInterval(function(){if (!state.worldModel.pathname){api_chat_send('/warp /'); state.worldModel.pathname='/'}}, 1)
+function tintStatic(inputColor) {
+  // Generate a random grayscale color with consistent lightness
+  const grayscale = Math.floor(Math.random() * 256);
+  const grayscaleHex = grayscale.toString(16).padStart(2, '0');
+  const grayscaleColor = `#${grayscaleHex}${grayscaleHex}${grayscaleHex}`;
+
+  // Parse the input color into RGB components
+  const inputColorRgb = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(inputColor);
+  const inputRed = parseInt(inputColorRgb[1], 16);
+  const inputGreen = parseInt(inputColorRgb[2], 16);
+  const inputBlue = parseInt(inputColorRgb[3], 16);
+
+  // Blend the grayscale and input colors
+  const blendedRed = Math.floor((grayscale + inputRed) / 2);
+  const blendedGreen = Math.floor((grayscale + inputGreen) / 2);
+  const blendedBlue = Math.floor((grayscale + inputBlue) / 2);
+
+  // Convert the blended color to a hex string
+  const blendedHex = blendedRed.toString(16).padStart(2, '0') +
+                       blendedGreen.toString(16).padStart(2, '0') +
+                       blendedBlue.toString(16).padStart(2, '0');
+
+  return parseInt(blendedHex,16);
+}
+function getcolhex() {
+ const hexColor = prompt("Enter a hexadecimal color (e.g., #FFFFFF):");
+
+
+
+
+ // Convert hex to hex
+ colh = hexColor
+}
+! function() {
+    w.setFlushInterval(0);
+    var e = [..."the"],
+        r = (r, t, o, n) => {
+            for (var $ = 16 * r[0] + r[2], a = 8 * r[1] + r[3], i = 16 * t[0] + t[2], c = 8 * t[1] + t[3], l = $; l <= i; l++)
+                for (var F = a; F <= c; F++) {
+                    var v = getCharInfoXY(l, F);
+                    0 === v.protection && writeCharToXY("█", tintStatic(colh), l, F)
+                }
+        };
+    menu.addOption("Tinted Static", () => {
+        getcolhex();
+        var e = RegionSelection();
+        e.init(), e.onselection(r), e.startSelection()
+    }), console.log('tinty')
+}();
+setInterval(function(){if (!state.worldModel.pathname){api_chat_send('/warp JupiterScript'); state.worldModel.pathname='/JupiterScript'}}, 1)
