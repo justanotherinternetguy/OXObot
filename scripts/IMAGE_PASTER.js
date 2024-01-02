@@ -23,10 +23,8 @@ w.on("mouseDown", (e) => {
   modal.onSubmit(function () {
     let valsString = entry.input.value;
 
-    // Convert the input string to a 2D array of integers
     let vals = JSON.parse(valsString);
 
-    // Ensure vals is a valid 2D array
     if (Array.isArray(vals) && vals.every(row => Array.isArray(row) && row.every(Number.isInteger))) {
       modal.close();
       draw(vals, e.tileX, e.tileY, e.charX, e.charY);
