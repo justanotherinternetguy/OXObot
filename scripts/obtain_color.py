@@ -19,7 +19,7 @@ def get_pixel_colors_with_coordinates(image_path):
 
     return pixel_colors_with_coordinates
 
-image_path = "../test.png"  # replace with the path to your image file
+image_path = "../image.jpeg"  # replace with the path to your image file
 pixel_data_array = get_pixel_colors_with_coordinates(image_path)
 
 print(pixel_data_array)
