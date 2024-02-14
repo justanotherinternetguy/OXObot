@@ -9,7 +9,12 @@ function draw(vals, tileX, tileY, charX, charY) {
   [sx, sy] = cursorToCoords(tileX, tileY, charX, charY);
   // console.log(sx, sy);
   for (let i = 0; i < n; i++) {
-    writeCharToXY("█", "0x"+vals[i][0].toString(16), vals[i][1] + sx, vals[i][2] + sy);
+    writeCharToXY(
+      "█",
+      "0x" + vals[i][0].toString(16),
+      vals[i][1] + sx,
+      vals[i][2] + sy
+    );
   }
 }
 
@@ -25,7 +30,10 @@ w.on("mouseDown", (e) => {
 
     let vals = JSON.parse(valsString);
 
-    if (Array.isArray(vals) && vals.every(row => Array.isArray(row) && row.every(Number.isInteger))) {
+    if (
+      Array.isArray(vals) &&
+      vals.every((row) => Array.isArray(row) && row.every(Number.isInteger))
+    ) {
       modal.close();
       draw(vals, e.tileX, e.tileY, e.charX, e.charY);
     } else {
